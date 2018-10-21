@@ -11,3 +11,13 @@ class Post(models.Model):
 
     def __str__(self):
         return self.title
+
+class Stats(models.Model):
+    alcohol = models.FloatField()
+    blood_pressure = models.IntegerField()
+    steps = models.IntegerField()
+    date_posted = models.DateTimeField(default=timezone.now)
+    author = models.ForeignKey(User, on_delete=models.CASCADE)
+
+    def __str__(self):
+        return str(self.date_posted)
