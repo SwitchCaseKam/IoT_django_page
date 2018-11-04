@@ -2,4 +2,20 @@
 {% load crispy_forms_tags %}
 {% block content %}
     <h1>{{ user.username}}</h1>
+
+    {% for drinking in drinkings %}
+
+         <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">{{ drinking.user }}</a>
+
+            </div>
+            <h2><a class="article-title" href="#">{{ drinking.timestamp }}</a></h2>
+            <p class="article-content">Alcohol = {{ drinking.alcohol }}</p>
+
+          </div>
+        </article>
+    {% endfor %}
+
 {% endblock content %}

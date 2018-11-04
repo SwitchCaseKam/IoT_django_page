@@ -3,6 +3,10 @@ from django.contrib.auth.forms import UserCreationForm
 from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
+from blog.models import Drinking, Activity
+
+from django.contrib.auth.models import User
+
 
 # Create your views here.
 def register(request):
@@ -19,4 +23,11 @@ def register(request):
 
 @login_required
 def profile(request):
+    context = {
+        #'posts': Post.objects.all()
+        #'stats': Stats.objects.all()
+        #'tests': Test.objects.using('smartband_database').all(),
+        'drinkings' : Drinking.objects.using('smartband_database').all(),
+        'activities': Activity.objects.using('smartband_database').all()
+    }
     return render(request, 'users/profile.html')

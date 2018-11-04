@@ -5,18 +5,17 @@
 
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for stat in stats %}
+    {% for drinking in drinkings %}
 
          <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-              <a class="mr-2" href="#">{{ stat.author }}</a>
+                <a class="mr-2" href="#">{{ drinking.user }}</a>
 
             </div>
-            <h2><a class="article-title" href="#">{{ stat.date_posted }}</a></h2>
-            <p class="article-content">Alcohol = {{ stat.alcohol }}</p>
-            <p class="article-content">Blood pressure = {{ stat.blood_pressure }}</p>
-            <p class="article-content">Steps = {{ stat.steps }}</p>
+            <h2><a class="article-title" href="#">{{ drinking.timestamp }}</a></h2>
+            <p class="article-content">Alcohol = {{ drinking.alcohol }}</p>
+
           </div>
         </article>
     {% endfor %}

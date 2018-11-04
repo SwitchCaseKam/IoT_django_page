@@ -2,6 +2,9 @@ from django.shortcuts import render
 from django.http import HttpResponse
 from .models import Post
 from .models import Stats
+from .models import Test
+from .models import Drinking
+from .models import Activity
 
 posts = [
     {
@@ -21,7 +24,10 @@ posts = [
 def home(request):
     context = {
         #'posts': Post.objects.all()
-        'stats': Stats.objects.all()
+        #'stats': Stats.objects.all()
+        #'tests': Test.objects.using('smartband_database').all(),
+        'drinkings' : Drinking.objects.using('smartband_database').all(),
+        'activities': Activity.objects.using('smartband_database').all()
     }
     return render(request, 'blog/home.html', context)
 
