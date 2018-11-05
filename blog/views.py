@@ -25,8 +25,10 @@ posts = [
 ]
 # Create your views here.
 def home(request):
-    current_user_id = User.objects.filter(username=request.user).first().id
-    v = Visualizer(user=current_user_id)
+    current_user = User.objects.filter(username=request.user).first()
+    if current_user is None:
+        return render(request, 'blog/home.html', {})
+    v = Visualizer(user=current_user.id)
     context = {
         #'posts': Post.objects.all()
         #'stats': Stats.objects.all()
@@ -41,8 +43,10 @@ def home(request):
 
 
 def analysis(request):
-    current_user_id = User.objects.filter(username=request.user).first().id
-    v = Visualizer(user=current_user_id)
+    current_user = User.objects.filter(username=request.user).first()
+    if current_user is None:
+        return render(request, 'blog/analysis.html', {})
+    v = Visualizer(user=current_user.id)
     analysis = v.plot_analysis()
     context = {
         #'posts': Post.objects.all()
