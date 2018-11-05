@@ -83,11 +83,11 @@ DATABASES = {
         'NAME': os.path.join(BASE_DIR, 'db.sqlite3'),
     },
 
-    'smartband_database': {
+    'new_smartband_db': {
         'ENGINE': 'django.db.backends.mysql',
         'USER': 'root',
         'PASSWORD': '',
-        'NAME': 'smartband_database',
+        'NAME': 'new_smartband_db',
         'HOST': '127.0.0.1',
         'PORT': '3306',
         'OPTIONS': {
