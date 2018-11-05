@@ -4,6 +4,8 @@ from django.contrib import messages
 from .forms import UserRegisterForm
 from django.contrib.auth.decorators import login_required
 from blog.models import Drinking, Activity
+from django.contrib.auth.models import User
+
 
 
 # Create your views here.
@@ -21,12 +23,14 @@ def register(request):
 
 @login_required
 def profile(request):
+    current_user_id = User.objects.filter(username=request.user).first().id
     context = {
         #'posts': Post.objects.all()
         #'stats': Stats.objects.all()
         #'tests': Test.objects.using('smartband_database').all(),
-        'drinking': Drinking.objects.using('new_smartband_db').all(),
-        'activity': Activity.objects.using('new_smartband_db').all()
+
+        'drinking': Drinking.objects.using('new_smartband_db').filter(user=current_user_id),
+        'activity': Activity.objects.using('new_smartband_db').filter(user=current_user_id)
 
 
     }
