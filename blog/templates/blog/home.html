@@ -8,36 +8,14 @@
 
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for drink in drinking %}
-
-         <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">Drinking</a>
-
-            </div>
-            <h2><a class="article-title" href="#">{{ drink.timestamp }}</a></h2>
-            <p class="article-content">Alcohol = {{ drink.alcohol }}</p>
-
-          </div>
-        </article>
-    {% endfor %}
-
-    {% for active in activity %}
-
-         <article class="media content-section">
-          <div class="media-body">
-            <div class="article-metadata">
-                <a class="mr-2" href="#">Activity </a>
-
-            </div>
-            <h2><a class="article-title" href="#">{{ active.timestamp }}</a></h2>
-            <p class="article-content">Steps = {{ active.steps }}</p>
-            <p class="article-content">Pulse = {{ active.pulse }}</p>
-
-          </div>
-        </article>
-
-    {% endfor %}
+    {% if last_alcohol %}
+		<div style="height: 480px">{{last_alcohol|safe}}</div>
+    {% endif %}
+    {% if last_steps %}
+		<div style="height: 480px">{{last_steps|safe}}</div>
+    {% endif %}
+    {% if last_pulse %}
+		<div style="height: 480px">{{last_pulse|safe}}</div>
+    {% endif %}
 {% endblock content %}
 

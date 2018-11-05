@@ -1,0 +1,30 @@
+          <center> <h1>Home Page!</h1>
+             <h5>Analysis</h5>
+
+                <h5>Monitor yourself everyday</h5>
+          <h4 style="margin-bottom: 60px">Latest data in our database</h4>
+          </center>
+
+
+{% extends "blog/base.html" %}
+{% block content %}
+    {% if alcohol %}
+		<div style="height: 480px">{{alcohol|safe}}</div>
+    {% endif %}
+    {% if steps %}
+		<div style="height: 480px">{{steps|safe}}</div>
+    {% endif %}
+    {% if pulse %}
+		<div style="height: 480px">{{pulse|safe}}</div>
+    {% endif %}
+    {% if activity %}
+		<div style="height: 480px">{{activity|safe}}</div>
+    {% endif %}
+    {% if analysis2d %}
+		<div style="height: 480px">{{analysis2d|safe}}</div>
+    {% endif %}
+    {% if analysis3d %}
+		<div style="height: 480px">{{analysis3d|safe}}</div>
+    {% endif %}
+{% endblock content %}
+
