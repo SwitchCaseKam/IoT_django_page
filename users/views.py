@@ -29,8 +29,8 @@ def profile(request):
         #'stats': Stats.objects.all()
         #'tests': Test.objects.using('smartband_database').all(),
 
-        'drinking': Drinking.objects.using('new_smartband_db').filter(user=current_user_id),
-        'activity': Activity.objects.using('new_smartband_db').filter(user=current_user_id)
+        'drinking': Drinking.objects.using('new_smartband_db').filter(user=current_user_id).order_by('-timestamp'),
+        'activity': Activity.objects.using('new_smartband_db').filter(user=current_user_id).order_by('-timestamp')
 
 
     }

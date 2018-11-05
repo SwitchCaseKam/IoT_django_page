@@ -26,8 +26,8 @@ def home(request):
         #'posts': Post.objects.all()
         #'stats': Stats.objects.all()
         #'tests': Test.objects.using('smartband_database').all(),
-        'drinkings' : Drinking.objects.using('new_smartband_db').all(),
-        'activities': Activity.objects.using('new_smartband_db').all()
+        'drinking' : Drinking.objects.using('new_smartband_db').order_by('-timestamp').all(),
+        'activity': Activity.objects.using('new_smartband_db').order_by('-timestamp').all()
     }
     return render(request, 'blog/home.html', context)
 

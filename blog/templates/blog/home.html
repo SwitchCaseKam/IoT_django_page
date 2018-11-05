@@ -1,23 +1,43 @@
           <center> <h1>Home Page!</h1>
              <h5>Join us today. Register and login :)</h5>
 
-                <h5>Monitor yourself everyday</h5></center>
+                <h5>Monitor yourself everyday</h5>
+          <h4 style="margin-bottom: 60px">Latest data in our database</h4>
+          </center>
+
 
 {% extends "blog/base.html" %}
 {% block content %}
-    {% for drinking in drinkings %}
+    {% for drink in drinking %}
 
          <article class="media content-section">
           <div class="media-body">
             <div class="article-metadata">
-                <a class="mr-2" href="#">{{ drinking.user }}</a>
+                <a class="mr-2" href="#">Drinking</a>
 
             </div>
-            <h2><a class="article-title" href="#">{{ drinking.timestamp }}</a></h2>
-            <p class="article-content">Alcohol = {{ drinking.alcohol }}</p>
+            <h2><a class="article-title" href="#">{{ drink.timestamp }}</a></h2>
+            <p class="article-content">Alcohol = {{ drink.alcohol }}</p>
 
           </div>
         </article>
+    {% endfor %}
+
+    {% for active in activity %}
+
+         <article class="media content-section">
+          <div class="media-body">
+            <div class="article-metadata">
+                <a class="mr-2" href="#">Activity </a>
+
+            </div>
+            <h2><a class="article-title" href="#">{{ active.timestamp }}</a></h2>
+            <p class="article-content">Steps = {{ active.steps }}</p>
+            <p class="article-content">Pulse = {{ active.pulse }}</p>
+
+          </div>
+        </article>
+
     {% endfor %}
 {% endblock content %}
 
