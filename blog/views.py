@@ -6,6 +6,7 @@ from .models import Stats
 from .models import Test
 from .models import Drinking
 from .models import Activity
+from django.contrib.auth.decorators import login_required
 
 from .visualizer import *
 
@@ -42,7 +43,7 @@ def home(request):
     }
     return render(request, 'blog/home.html', context)
 
-
+@login_required
 def analysis(request):
     current_user = User.objects.filter(username=request.user).first()
     if current_user is None:
