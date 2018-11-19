@@ -37,7 +37,8 @@ def home(request):
         #'activity': Activity.objects.using('new_smartband_db').order_by('-timestamp').all(),
         'last_alcohol': v.plot_last_alcohol(),
         'last_steps': v.plot_last_steps(),
-        'last_pulse': v.plot_last_pulse()
+        'last_pulse': v.plot_last_pulse(),
+        'user_db_id': current_user.id
     }
     return render(request, 'blog/home.html', context)
 
@@ -60,7 +61,8 @@ def analysis(request):
         'pulse': v.plot_pulse(),
         'activity': v.plot_activity(),
         'analysis2d': analysis[0],
-        'analysis3d': analysis[1]
+        'analysis3d': analysis[1],
+        'user_db_id': current_user.id
     }
     return render(request, 'blog/analysis.html', context)
 

@@ -123,6 +123,12 @@ class DataContainer:
         for d in Drinking.objects.using('new_smartband_db').all():
             print(d)
             d.delete()
+            
+
+def generate(user, days, numbers=1000):
+    cont = DataContainer(user, days)
+    cont.rand(numbers)
+    cont.save()
 
 
 if __name__ == "__main__":

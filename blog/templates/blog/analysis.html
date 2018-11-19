@@ -8,6 +8,9 @@
 
 {% extends "blog/base.html" %}
 {% block content %}
+    {% if user_db_id %}
+		<div>Your ID is {{user_db_id}}</div>
+    {% endif %}
     {% if alcohol %}
 		<div style="height: 480px">{{alcohol|safe}}</div>
     {% endif %}
