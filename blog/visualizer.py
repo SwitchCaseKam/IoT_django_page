@@ -74,6 +74,9 @@ class Visualizer:
                                   tzinfo=now.tzinfo)
             hist_x[ind] = x
             hist_y[ind] = y
+        print("now", now.hour)
+        print("x", hist_x)
+        print("y", hist_y)
         return data.order_by('timestamp'), hist_x, hist_y
 	
     def monthly_grid(self, model, name, func):    

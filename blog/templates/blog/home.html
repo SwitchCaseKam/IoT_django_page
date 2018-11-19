@@ -20,5 +20,14 @@
     {% if last_pulse %}
 		<div style="height: 480px">{{last_pulse|safe}}</div>
     {% endif %}
+    {% if monthly_alcohol %}
+		<div style="height: 480px">{{monthly_alcohol|safe}}</div>
+    {% endif %}
+    {% if monthly_steps %}
+		<div style="height: 480px">{{monthly_steps|safe}}</div>
+    {% endif %}
+    {% if monthly_pulse %}
+		<div style="height: 480px">{{monthly_pulse|safe}}</div>
+    {% endif %}
 {% endblock content %}
 

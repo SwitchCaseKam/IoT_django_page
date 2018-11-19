@@ -39,6 +39,9 @@ def home(request):
         'last_alcohol': v.plot_last_alcohol(),
         'last_steps': v.plot_last_steps(),
         'last_pulse': v.plot_last_pulse(),
+        'monthly_alcohol': v.plot_monthly_alcohol(),
+        'monthly_steps': v.plot_monthly_steps(),
+        'monthly_pulse': v.plot_monthly_pulse(),
         'user_db_id': current_user.id
     }
     return render(request, 'blog/home.html', context)
